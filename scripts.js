@@ -2,10 +2,14 @@ import { books, authors, genres, BOOKS_PER_PAGE } from './data.js'
 
 class BookApp {
     constructor(books, authors, genres, booksPerPage) {
-        
+        this.books = books;
+        this.authors = authors;
+        this.genres = genres;
+        this.BOOKS_PER_PAGE = booksPerPage;
+
+        this.page = 1;
+        this.matches = books;
     }
-let page = 1;
-let matches = books
 
 const starting = document.createDocumentFragment()
 
