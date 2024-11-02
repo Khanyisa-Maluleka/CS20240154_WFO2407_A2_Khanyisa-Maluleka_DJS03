@@ -12,7 +12,7 @@ class BookApp {
         this.currentPage = 1;
         this.matches = books;
         
-        
+        //a function that calls all my other functions
         this.init();
     }
 
