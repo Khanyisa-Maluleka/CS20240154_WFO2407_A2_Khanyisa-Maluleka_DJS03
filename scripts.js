@@ -17,7 +17,7 @@ class BookApp {
     }
 
     init() {
-        this.renderInitialBookList();
+        this.initialBookList();
         this.setupSearchForms();
         this.setupTheme();
         this.setupEventListeners();
@@ -25,7 +25,7 @@ class BookApp {
     }
 
     // Book rendering methods
-    renderBookPreview(book) { //Creates a button element for each book preview
+    bookPreview(book) { //Creates a button element for each book preview
         const element = document.createElement('button');
         element.classList = 'preview';
         element.setAttribute('data-preview', book.id);
@@ -43,18 +43,18 @@ class BookApp {
         return element;
     }
 
-    renderInitialBookList() { // to determine how many books to show
+    initialBookList() { // to determine how many books to show
         const fragment = document.createDocumentFragment();
         const initialBooks = this.matches.slice(0, this.BOOKS_PER_PAGE);
         
         for (const book of initialBooks) {
-            fragment.appendChild(this.renderBookPreview(book));
+            fragment.appendChild(this.bookPreview(book));
         }
         
         document.querySelector('[data-list-items]').appendChild(fragment);
     }
 
-    // Form setup methods
+    // To show author and genre dropdown menus
     setupSearchForms() {
         this.createSelectOptions('[data-search-genres]', this.genres, 'All Genres');
         this.createSelectOptions('[data-search-authors]', this.authors, 'All Authors');
@@ -131,7 +131,7 @@ class BookApp {
         const newItems = document.createDocumentFragment();
 
         for (const book of result.slice(0, this.BOOKS_PER_PAGE)) {
-            newItems.appendChild(this.renderBookPreview(book));
+            newItems.appendChild(this.bookPreview(book));
         }
 
         document.querySelector('[data-list-items]').appendChild(newItems);
@@ -232,7 +232,7 @@ class BookApp {
         const end = (this.currentPage + 1) * this.BOOKS_PER_PAGE;
         
         for (const book of this.matches.slice(start, end)) {
-            fragment.appendChild(this.renderBookPreview(book));
+            fragment.appendChild(this.bookPreview(book));
         }
         
         document.querySelector('[data-list-items]').appendChild(fragment);
