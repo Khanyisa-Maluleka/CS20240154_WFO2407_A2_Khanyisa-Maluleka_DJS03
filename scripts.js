@@ -25,7 +25,7 @@ class BookApp {
     }
 
     // Book rendering methods
-    renderBookPreview(book) {
+    renderBookPreview(book) { //Creates a button element for each book preview
         const element = document.createElement('button');
         element.classList = 'preview';
         element.setAttribute('data-preview', book.id);
