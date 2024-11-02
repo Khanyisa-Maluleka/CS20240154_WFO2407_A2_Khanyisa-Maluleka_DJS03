@@ -1,6 +1,9 @@
 import { books, authors, genres, BOOKS_PER_PAGE } from './data.js'
 
 class BookApp {
+    constructor(books, authors, genres, booksPerPage) {
+        
+    }
 let page = 1;
 let matches = books
 
