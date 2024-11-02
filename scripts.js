@@ -11,26 +11,24 @@ class BookApp {
         this.matches = books;
     }
 
-const starting = document.createDocumentFragment()
+    bookPreview(book) {
+        const element = document.createElement('button')
+        element.classList = 'preview'
+        element.setAttribute('data-preview', book.id)
 
-for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
-    const element = document.createElement('button')
-    element.classList = 'preview'
-    element.setAttribute('data-preview', id)
-
-    element.innerHTML = `
-        <img
-            class="preview__image"
-            src="${image}"
-        />
-        
-        <div class="preview__info">
-            <h3 class="preview__title">${title}</h3>
-            <div class="preview__author">${authors[author]}</div>
-        </div>
-    `
-
-    starting.appendChild(element)
+        element.innerHTML = `
+            <img
+                class="preview__image"
+                src="${book.image}"
+            />
+            
+            <div class="preview__info">
+                <h3 class="preview__title">${title}</h3>
+                <div class="preview__author">${this.authors[book.author]}</div>
+            </div>
+        `
+        return element;   
+    }
 }
 
 document.querySelector('[data-list-items]').appendChild(starting)
