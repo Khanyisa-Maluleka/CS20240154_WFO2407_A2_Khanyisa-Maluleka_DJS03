@@ -1,5 +1,6 @@
 import { books, authors, genres, BOOKS_PER_PAGE } from './data.js'
 
+class BookApp {
 let page = 1;
 let matches = books
 
@@ -234,3 +235,4 @@ document.querySelector('[data-list-items]').addEventListener('click', (event) =>
         document.querySelector('[data-list-description]').innerText = active.description
     }
 })
+}
