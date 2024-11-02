@@ -43,7 +43,7 @@ class BookApp {
         return element;
     }
 
-    renderInitialBookList() {
+    renderInitialBookList() { // to determine how many books to show
         const fragment = document.createDocumentFragment();
         const initialBooks = this.matches.slice(0, this.BOOKS_PER_PAGE);
         
